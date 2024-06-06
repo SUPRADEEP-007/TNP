@@ -1,0 +1,134 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d8eafa;
+  }
+
+p{
+  color: rgb(56, 56, 56) ;
+}
+  
+  /*header*/
+  header {
+    background-color: #0073e6;
+    color: #fff;
+    padding: 8px 15px;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-left h2 {
+    margin-left: 20px;
+    font-style: oblique;
+  }
+  
+  nav {
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 40px;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+  }
+  
+  .link {
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fefefe; 
+    background-color: #0073e6;
+    position: relative;
+    transition: color 0.25s;
+  }
+  .link:hover {
+    color: rgb(77, 25, 247);
+    background-color: white;
+    transition: width .75s;
+    transition: 0.45s;
+    border-radius: 10px;
+  }
+  .content-main{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /*aside*/
+  .aleft {
+    display: flex;
+    width: 25%;
+    margin: 5px;
+  }
+  
+  .departments {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5%;
+  }
+  
+  .dept {
+    width: 100%;
+  }
+
+  button{
+    background-color: white;
+    border-radius: 8px;
+    border-color: white;
+    width: 98%;
+    height: 60px;
+    margin-top: 5px;
+    font-size: larger;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  button:hover{
+    color: #0073e6;
+  }
+  
+  /*main*/
+  .main-content{
+    display: flex;
+    width: 50%;
+    
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .fsd{
+    display: flex;
+    flex-direction: column;
+  }
+  .year1-2{
+    display: flex;
+  }
+  .years{
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5%;
+    width: 50%;
+  }
+
+  h4{
+    color: rgb(20, 244, 72);
+  }
+  li{
+    color: rgb(66, 65, 65);
+  }

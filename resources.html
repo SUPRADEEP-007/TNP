@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="stylesheet" href="CSS/resorces.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+              <img src="images/image.png" style="width: 60px; height: 60px;">
+              <h2>Training & Placement Cell</h2>
+            </div>
+            <div class="header-right">
+              <nav>
+                <ul>
+                  <li><a href="home.html" class="link">Home</a></li>
+                  <li><a href="placementstat.html" class="link">Placement Statistics</a></li>
+                  <li><a href="" class="link">Committe</a></li>
+                  <li><a href="resources.html" class="link">Resources</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+    </header>
+
+    <main class="content-main">
+        <aside class="aleft">
+            <div class="departments">
+              <h2>Departments</h2>
+              <div class="dept">
+                <button id="fetchCSE" onclick="fetchDepartmentData('0')">CSE</button>
+              </div>
+              <div class="dept" >
+                <button id="fetchECE" onclick="fetchDepartmentData('1')">ECE</button>
+              </div>
+              <div class="dept">
+                <button id="fetchIT" onclick="fetchDepartmentData('2')">IT</button>
+              </div>
+              <div class="dept">
+                <button id="fetchEEE" onclick="fetchDepartmentData('3')">EEE</button>
+              </div>
+              <div class="dept">
+                <button id="fetchEEE" onclick="fetchDepartmentData('4')">MECHANICAL</button>
+              </div>
+              <div class="dept">
+                <button id="fetchEEE" onclick="fetchDepartmentData('5')">CIVIL</button>
+              </div>
+            </div>
+          </aside>
+      
+        <section class="main-content">
+          <h2 id="deptTitle" style="margin-bottom: 0px; color: rgb(247, 150, 150);"></h2>
+          <div class="fsd">
+            <div class="year1-2">
+              <div class="years">
+                <div>
+                  <h4>Year 1</h4>
+                  <div id="year1Content"></div>
+                </div>
+              </div>
+              <div class="years">
+                <div>
+                  <h4>Year 2</h4>
+                  <div id="year2Content"></div>
+                </div>
+              </div>
+            </div>
+            <div class="year1-2">
+              <div class="years">
+                <div>
+                  <h4>Year 3</h4>
+                  <div id="year3Content"></div>
+                </div>
+              </div>
+              <div class="years">
+                <div>
+                  <h4>Year 4</h4>
+                  <div id="year4Content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <aside class="aleft">
+            <div class="departments">
+                <h2>Books</h2>
+                <div class="dept">
+                    <button onclick="">Logical Reasoning</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">Verbal Reasoning</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">Basic General Knowledge</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">C Programming</button>
+                </div>
+                <h2>Useful Links</h2>
+                <div class="dept">
+                    <button onclick="">Naukri.com</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">Internshala</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">Scalar</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">IndiaBix</button>
+                </div>
+                <div class="dept">
+                    <button onclick="">Leet Code</button>
+                </div>
+            </div>
+        </aside>
+      </main>
+      
+      <script src="JS/resorces.js"></script>
+      
+</body>
+</html>

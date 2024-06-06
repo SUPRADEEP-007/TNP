@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin home</title>
+  <link rel="stylesheet" href="CSS/placementstat.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+              <img src="images/image.png" style="width: 60px; height: 60px;">
+              <h2>Training & Placement Cell</h2>
+            </div>
+            <div class="header-right">
+              <nav>
+                <ul>
+                  <li><a href="admin_home.html" class="link">Home</a></li>
+                  <li><a href="admin_announcment.html" class="link">Announcments</a></li>
+                  <li><a href="amin_resources.html" class="link">Resources</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+    </header>
+
+  <main>
+    <div class="selector">
+      <div style="display: flex;">
+
+        <section class="placement-records" id="placement-records">
+          <div class="icon-container">
+            <img src="images/record.png" style="height: 90px;width: 90px; margin-top: 20%;">
+          </div>
+          <div style="justify-content: center; display: flex;flex-direction: column;">
+            <h4 style="margin-bottom: 0px;">Placement</h4>
+            <h4 style="margin-top: 0px;"> Records</h4>
+          </div>
+        </section>
+        
+        <section class="major-recruit" id="major-recruit">
+          <div class="icon-container">
+            <img src="images/recruiters.png" style="height: 80px;width: 80px; margin-top: 20%;">
+          </div>
+          <div style="justify-content: center; display: flex;flex-direction: column;">
+            <h4 style="margin-bottom: 0px;">Major</h4>
+            <h4 style="margin-top: 0px;"> Recruiters</h4>
+          </div>
+        </section>
+
+      </div>
+
+      <div>
+        <button onclick="Insert_data()">Insert</button>
+        <button onclick="Delete_data()">Delete</button>
+
+      </div>
+
+      <div class="option-right">
+        <div style="display: flex; justify-content: space-between;">
+          <h3 style="margin-left: 20px;">Filters</h3>
+          <button id="viewoption" class="view-btn" style="margin: 10px;">View</button>
+        </div>
+        <select id="yearFilter">
+            <option value="" disabled selected>Select Year</option>
+            <option value="">none</option>
+           
+        </select>
+        
+        <select id="departmentFilter" style="visibility:visible">
+            <option value="" disabled selected>Select Department</option>
+            <option value="">none</option>
+            <option value="1">CSE</option>
+            <option value="2">ECE</option>
+            <option value="3">IT</option>
+            <option value="4">EEE</option>
+            <option value="5">Mechanical</option>
+            <option value="6">Civil</option>
+        </select>
+      </div>
+    
+    </div>
+    <h2>Result</h2>
+    <div id="placement_data"></div>
+    
+  </main>
+
+  <script src="JS/admin_home.js"></script>
+
+</body>
+</html>

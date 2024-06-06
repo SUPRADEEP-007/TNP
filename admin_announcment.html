@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Announcements</title>
+    <link rel="stylesheet" href="CSS/admin_announ.css">
+    <style>
+      button{
+        border-radius: 10px;
+        border-color: #0073e6;
+        border-width: 2px;
+        width: 120px;
+        height: 40px;
+        font-weight: bolder;
+      }
+      button :hover{
+        color: #3995f1;
+      }
+
+      #postForm {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          width: 400px;
+      }
+
+      label {
+          font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="url"],
+      textarea {
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+              <img src="images/image.png" style="width: 60px; height: 60px;">
+              <h2>Training & Placement Cell</h2>
+            </div>
+            <div class="header-right">
+              <nav>
+                <ul>
+                  <li><a href="admin_home.html" class="link">Home</a></li>
+                  <li><a href="admin_announcment.html" class="link">Announcments</a></li>
+                  <li><a href="amin_resources.html" class="link">Resources</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+    </header>
+
+    <h2>Announcements</h2>
+    <div style="justify-content: space-between;display: flex; flex-direction: row; align-items: center;">
+
+      <section class="content-aside" style="width: 50%;flex-direction: column; justify-content: center;">
+        <div class="sidebar">
+          <h3>Deletion</h3>
+          <section class="latest-posts">
+            <!-- Dynamic content will be inserted here -->
+          </section>
+        </div>
+        <div class="content-aside" style="justify-content: center;">
+          <button id="delete" style="margin-top: 10px;">Delete</button>
+        </div>
+      </section>
+
+      <section class="content-aside" style="width: 50%;flex-direction: column;justify-content: center;">
+        <div class="sidebar" style="width: 80%;">
+          <h3>Insertion</h3>
+          <section>
+            <form id="postForm">
+              <label for="title">Title:</label><br>
+              <input type="text" id="title" name="title" required><br><br>
+      
+              <label for="content">Content:</label><br>
+              <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+      
+              <label for="link">Link:</label><br>
+              <input type="url" id="link" name="link"><br><br>
+      
+              <button id="insert">Insert</button>
+          </form>
+          </section>
+        </div>
+      </section>
+
+    </div>
+    
+    
+
+    <script src="JS/admin_announcment.js"></script>
+</body>
+</html>
