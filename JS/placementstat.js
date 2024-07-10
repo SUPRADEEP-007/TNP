@@ -63,7 +63,7 @@ function viewPlacementRecords() {
 
   xhr.onload = function() {
     if (this.status === 200) {
-      console.log(this.responseText);
+      //console.log(this.responseText);
       const records = JSON.parse(this.responseText);
       let output = '';
 
@@ -129,7 +129,7 @@ function viewMajorRecruiters() {
 
   xhr.onload = function() {
     if (this.status === 200) {
-      console.log(this.responseText);
+      //console.log(this.responseText);
       const records = JSON.parse(this.responseText);
       let output = '';
 

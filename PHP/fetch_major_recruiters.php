@@ -2,17 +2,14 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "placement_records"; // Replace with your database name
+$dbname = "placement_records"; 
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get filter values
 $year = $_POST['year'];
 $sql="";
 

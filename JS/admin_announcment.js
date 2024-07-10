@@ -116,3 +116,35 @@ document.getElementById("insert").addEventListener('click', async function() {
         console.error('Error adding post:', error);
     }
 });
+
+
+function Logout(){
+    fetch('PHP/logout.php')
+    .then(response => {
+        if (response.ok) {
+            // Remove specific items from session storage
+            sessionStorage.removeItem('admin_username');
+            sessionStorage.removeItem('admin_password');
+
+
+            window.location.href = 'home.html';
+        } else {
+            alert('Logout failed.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+  }
+
+
+window.onload = function() {
+    let adminUsername = sessionStorage.getItem('admin_username');
+    let adminPassword = sessionStorage.getItem('admin_password');
+
+    if (!adminUsername || !adminPassword) {
+        // Redirect to login page if session storage is not set
+        window.location.href = 'login.html';
+    }
+};
+

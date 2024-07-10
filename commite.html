@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee</title>
+    <link rel="stylesheet" href="CSS/commite.css">
+    <style>
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            }
+
+            #chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            cursor: pointer;
+            }
+
+            #chat-body {
+            display: none;
+            padding: 10px;
+            }
+
+            #chat-messages {
+            height: 200px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            }
+
+            #chat-input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            }
+
+            #send-btn {
+            width: 22%;
+            padding: 7px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <img src="images/image.png" style="width: 60px; height: 60px;">
+                <h2>Training & Placement Cell</h2>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="home.html" class="link">Home</a></li>
+                        <li><a href="placementstat.html" class="link">Placement Statistics</a></li>
+                        <li><a href="#" class="link">Committee</a></li>
+                        <li><a href="resources.html" class="link">Resources</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="weather">
+            <h2>Weather in Pondicherry</h2>
+            <div id="weatherData">
+                <!-- Weather data will be inserted here -->
+            </div>
+        </section>
+        <section class="faculty-profiles">
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 1">
+                <h3>Dr. Abhishek</h3>
+                <p>Professor</p>
+                <p>Email: <a href="mailto:abhi@example.com">abhi@example.com</a></p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 2">
+                <h3>Dr. Happy</h3>
+                <p>Associate Professor</p>
+                <p>Email: <a href="mailto:jane.smith@example.com">jane.smith@example.com</a></p>
+                <p>Phone: (123) 456-7891</p>
+            </div>
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 3">
+                <h3>Dr. Sudha</h3>
+                <p>Assistant Professor</p>
+                <p>Email: <a href="mailto:emily.johnson@example.com">emily.johnson@example.com</a></p>
+                <p>Phone: (123) 456-7892</p>
+            </div>
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 4">
+                <h3>Dr. Bhaskar</h3>
+                <p>Lecturer</p>
+                <p>Email: <a href="mailto:michael.brown@example.com">michael.brown@example.com</a></p>
+                <p>Phone: (123) 456-7893</p>
+            </div>
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 5">
+                <h3>Dr. Amin</h3>
+                <p>Senior Lecturer</p>
+                <p>Email: <a href="mailto:sarah.davis@example.com">sarah.davis@example.com</a></p>
+                <p>Phone: (123) 456-7894</p>
+            </div>
+            <div class="profile">
+                <img src="images/recruiters.png" alt="Faculty 6">
+                <h3>Dr. SriRam</h3>
+                <p>Professor</p>
+                <p>Email: <a href="mailto:william.wilson@example.com">william.wilson@example.com</a></p>
+                <p>Phone: (123) 456-7895</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Send Mail To Admin</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <div id="chat-widget" class="chat-widget">
+            <div id="chat-header">Help</div>
+            <div id="chat-body">
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function fetchWeatherData() {
+                $.ajax({
+                    url: "PHP/get_weather.php", 
+                    type: "GET",
+                    dataType: "json",
+                    success: function(response) {
+                       
+                        if (response.error) {
+                            $("#weatherData").html("<p>Error fetching weather data</p>");
+                        } else {
+                            const temperature = response.temperature;
+                            const condition = response.condition;
+                            const weatherHTML = `
+                                <p>Temperature: ${temperature} °C</p>
+                                <p>Condition: ${condition}</p>
+                            `;
+                            $("#weatherData").html(weatherHTML);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log("Error fetching weather data:", errorThrown);
+                        $("#weatherData").html("<p>Weather data unavailable at the moment.</p>");
+                    }
+                });
+            }
+
+            
+            fetchWeatherData();
+
+            $("#contactForm").on("submit", function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: "PHP/send_email.php",
+                    type: "post",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert("Your message has been sent successfully.");
+                        $("#contactForm")[0].reset();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert("There was an error sending your message. Please try again later.");
+                    }
+                });
+            });
+        });
+
+        // Chat widget functionality
+        const socket = new WebSocket('ws://localhost:8080'); // Update with your actual WebSocket server URL
+
+$('#chat-header').on('click', function() {
+    $('#chat-body').toggle();
+});
+
+socket.onmessage = function(event) {
+    const message = event.data;
+
+    if (typeof message === 'string') {
+        displayMessage(message);
+    } else {
+        const reader = new FileReader();
+        reader.onload = function() {
+            displayMessage(reader.result);
+        };
+        reader.readAsText(message);
+    }
+};
+
+function displayMessage(message) {
+    $('#chat-messages').append('<p>' + message + '</p>');
+    $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+}
+
+$('#send-btn').on('click', function() {
+    const message = $('#chat-input').val();
+    socket.send(message);
+    displayMessage('You: ' + message);
+    $('#chat-input').val('');
+});
+
+$('#chat-input').on('keypress', function(e) {
+    if (e.which == 13) { // Enter key pressed
+        $('#send-btn').click();
+    }
+});
+
+
+    </script>
+</body>
+</html>

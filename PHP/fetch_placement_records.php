@@ -2,17 +2,14 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "placement_records"; // Replace with your database name
+$dbname = "placement_records"; 
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get filter values
 $year = $_POST['year'];
 $department = $_POST['department'];
 $sql="";
@@ -29,13 +26,13 @@ if($year == "" && $department =="")
 elseif($year == "")
 {
     $sql ="SELECT pr.student_name, pr.pass_out_year, d.department_name, c.company_name, pr.package
-    FROM placement_records pr
+    FROM placements_record pr
     JOIN departments d ON pr.department_id = d.department_id
-    JOIN companies c ON pr.company_id = c.company_id
+    JOIN companys c ON pr.company_id = c.company_id
     WHERE pr.department_id = '$department'";
 }
 
-elseif($department =="")
+elseif($department == "")
 {
     $sql = "SELECT pr.student_name, pr.pass_out_year, d.department_name, c.company_name, pr.package
         FROM  placements_record pr
@@ -45,7 +42,6 @@ elseif($department =="")
 }
 
 else{
-// Build the SQL query
 $sql = "SELECT pr.student_name, pr.pass_out_year, d.department_name, c.company_name, pr.package
         FROM  placements_record pr
         JOIN departments d ON pr.department_id = d.department_id
@@ -61,9 +57,7 @@ if ($result->num_rows > 0) {
         $rows[] = $row;
     }
 } 
-// else {
-//     echo json_encode([]);
-// }
+
 
 $conn->close();
 

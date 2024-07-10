@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin home</title>
   <link rel="stylesheet" href="CSS/placementstat.css">
+  <style>
+         
+         .linked {
+          text-decoration: none;
+          padding: 0.5rem 0.75rem;
+          font-size: 16px;
+          font-weight: 600;
+          color: #fefefe; 
+          background-color: #0073e6;
+          position: relative;
+          transition: color 0.25s;
+      }
+
+      .linked:hover {
+          background-color: rgb(240, 33, 33);
+          transition: width .75s;
+          transition: 0.45s;
+          border-radius: 10px;
+      }
+  </style>
 </head>
 <body>
     <header>
@@ -18,7 +38,8 @@
                 <ul>
                   <li><a href="admin_home.html" class="link">Home</a></li>
                   <li><a href="admin_announcment.html" class="link">Announcments</a></li>
-                  <li><a href="amin_resources.html" class="link">Resources</a></li>
+                  <li><a href="admin_resources.html" class="link">Resources</a></li>
+                  <li><a href="#" onclick="logoutadmin()" class="linked">Logout</a></li>
                 </ul>
               </nav>
             </div>
@@ -52,7 +73,7 @@
       </div>
 
       <div>
-        <button onclick="Insert_data()">Insert</button>
+        <button onclick="createFileInput()">Insert</button>
         <button onclick="Delete_data()">Delete</button>
 
       </div>
@@ -87,6 +108,9 @@
   </main>
 
   <script src="JS/admin_home.js"></script>
+  <script>
+    
+  </script>
 
 </body>
 </html>

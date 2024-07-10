@@ -65,7 +65,6 @@ function viewPlacementRecords() {
 
     xhr.onload = function() {
     if (this.status === 200) {
-        console.log(this.responseText);
         const records = JSON.parse(this.responseText);
         let output = '';
 
@@ -131,7 +130,6 @@ function viewMajorRecruiters() {
 
     xhr.onload = function() {
     if (this.status === 200) {
-        console.log(this.responseText);
         const records = JSON.parse(this.responseText);
         let output = '';
 
@@ -216,6 +214,15 @@ function Delete_data() {
 }
 
 window.onload = function() {
+
+    let adminUsername = sessionStorage.getItem('admin_username');
+    let adminPassword = sessionStorage.getItem('admin_password');
+
+    if (!adminUsername || !adminPassword) {
+        // Redirect to login page if session storage is not set
+        window.location.href = 'login.html';
+    }
+    
     var yearSelect = document.getElementById("yearFilter");
     // Function to remove all options from the third onward
     removeOptionsFromThird(yearSelect);
@@ -246,3 +253,114 @@ function orderFilter()
     })
     .catch(error => console.error('Error fetching years:', error));
 }
+
+function createFileInput() {
+    // Create file input field dynamically
+    const fileInputDiv = document.createElement('div');
+    fileInputDiv.id = 'fileInputDiv';
+
+    const display_layout= document.getElementById("placement_data");
+    display_layout.innerHTML="";
+
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.id = 'fileInput';
+    fileInput.accept = '.csv';
+
+    const uploadButton = document.createElement('button');
+    uploadButton.textContent = 'Upload and Insert Data';
+    uploadButton.onclick = function() { Insert_data(); };
+
+    display_layout.appendChild(fileInput);
+    display_layout.appendChild(uploadButton);
+
+    
+}
+
+function logoutadmin(){
+    fetch('PHP/logout.php')
+    .then(response => {
+        if (response.ok) {
+            let adminUsername = sessionStorage.getItem('admin_username');
+            let adminPassword = sessionStorage.getItem('admin_password');
+            console.log(adminPassword,adminUsername);
+            // Remove specific items from session storage
+            sessionStorage.removeItem('admin_username');
+            sessionStorage.removeItem('admin_password');
+             adminUsername = sessionStorage.getItem('admin_username');
+             adminPassword = sessionStorage.getItem('admin_password');
+            console.log(adminPassword,adminUsername);
+            window.location.href = 'home.html';
+        } else {
+            alert('Logout failed.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+async function Insert_data() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    if (!file) {
+        alert('Please select a file.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        const response = await fetch('PHP/insert_records.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        // Create a div dynamically to display the inserted data
+        if (result.data && result.data.length > 0) {
+            const insertSpace = document.getElementById('placement_data');
+            const dataDiv = document.createElement('div');
+            dataDiv.className = 'data-div';
+
+            const table = document.createElement('table');
+            table.border = 1;
+
+            // Create table headers
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const headers = ['Student ID', 'Student Name', 'Department ID', 'Pass Out Year', 'Company ID', 'Package'];
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create table body
+            const tbody = document.createElement('tbody');
+            result.data.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.values(row).forEach(cellData => {
+                    const td = document.createElement('td');
+                    td.textContent = cellData;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
+
+            dataDiv.appendChild(table);
+            insertSpace.appendChild(dataDiv);
+        }
+    } catch (error) {
+        console.error('There was an error!', error);
+    }
+}
+
+
+

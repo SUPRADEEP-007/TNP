@@ -4,8 +4,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Resources</title>
+    <link rel="stylesheet" href="CSS/admin_announ.css">
+    <style>
+
+        form {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .fieldset-container {
+            border: 2px solid #0d0e0d;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .legend-box {
+            font-size: 18px;
+            font-weight: bold;
+            color: #5c68ea;
+            padding: 0 10px;
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background-color: white;
+        }
+
+        .form-inputs {
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            background-color: rgb(241, 242, 243);
+        }
+
+        input[type="submit"] {
+            background-color: #7c74f3;
+            color: rgb(255, 253, 253);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+             
+      .linked {
+          text-decoration: none;
+          padding: 0.5rem 0.75rem;
+          font-size: 16px;
+          font-weight: 600;
+          color: #fefefe; 
+          background-color: #0073e6;
+          position: relative;
+          transition: color 0.25s;
+      }
+
+      .linked:hover {
+          background-color: rgb(240, 33, 33);
+          transition: width .75s;
+          transition: 0.45s;
+          border-radius: 10px;
+      }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <img src="images/image.png" style="width: 60px; height: 60px;">
+                <h2>Training & Placement Cell</h2>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="admin_home.html" class="link">Home</a></li>
+                        <li><a href="admin_announcment.html" class="link">Announcments</a></li>
+                        <li><a href="admin_resources.html" class="link">Resources</a></li>
+                        <li><a href="#" onclick="Logout()" class="linked">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: flex;">
+          <form id="form1" action="PHP/book_upload.php" method="post" enctype="multipart/form-data">
+              <fieldset class="fieldset-container">
+                  <legend class="legend-box">Logical Reasoning</legend>
+                  <div class="form-inputs">
+                      <input type="hidden" name="fileid" value="1">
+                      <input type="file" name="file" id="fileInput1" accept=".pdf" required>
+                      <br>
+                      <input type="submit" value="Upload">
+                  </div>
+              </fieldset>
+          </form>
+          <form id="form2" action="PHP/book_upload.php" method="post" enctype="multipart/form-data">
+              <fieldset class="fieldset-container">
+                  <legend class="legend-box">Verbal Reasoning</legend>
+                  <div class="form-inputs">
+                      <input type="hidden" name="fileid" value="2">
+                      <input type="file" name="file" id="fileInput2" accept=".pdf" required>
+                      <br>
+                      <input type="submit" value="Upload">
+                  </div>
+              </fieldset>
+          </form>
+          <form id="form3" action="PHP/book_upload.php" method="post" enctype="multipart/form-data">
+              <fieldset class="fieldset-container">
+                  <legend class="legend-box">Basic General Knowledge</legend>
+                  <div class="form-inputs">
+                      <input type="hidden" name="fileid" value="3">
+                      <input type="file" name="file" id="fileInput3" accept=".pdf" required>
+                      <br>
+                      <input type="submit" value="Upload">
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+      <div style="display: flex;">
+          <form id="form4" action="PHP/book_upload.php" method="post" enctype="multipart/form-data">
+              <fieldset class="fieldset-container">
+                  <legend class="legend-box">C Programming</legend>
+                  <div class="form-inputs">
+                      <input type="hidden" name="fileid" value="4">
+                      <input type="file" name="file" id="fileInput4" accept=".pdf" required>
+                      <br>
+                      <input type="submit" value="Upload">
+                  </div>
+              </fieldset>
+          </form>
+          <form id="form5" action="PHP/book_upload.php" method="post" enctype="multipart/form-data">
+              <fieldset class="fieldset-container">
+                  <legend class="legend-box">Java Programming</legend>
+                  <div class="form-inputs">
+                      <input type="hidden" name="fileid" value="5">
+                      <input type="file" name="file" id="fileInput5" accept=".pdf" required>
+                      <br>
+                      <input type="submit" value="Upload">
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+  </div>
+
+  <div style="position: fixed; bottom: 10px; right: 10px; width: 300px;">
+        <div style="border: 1px solid #ccc; border-radius: 8px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <div style="background-color: #0073e6; color: white; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                <h3 style="margin: 0; font-size: 16px;">Admin Chat</h3>
+            </div>
+            <div id="admin-chat-messages" style="height: 200px; padding: 10px; overflow-y: scroll;">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div style="padding: 10px;">
+                <input type="text" id="admin-chat-input" placeholder="Type your message..." style="width: 70%; padding: 5px;">
+                <button id="admin-send-btn" style="width: 25%; padding: 5px; background-color: #0073e6; color: white; border: none; border-radius: 3px;">Send</button>
+            </div>
+        </div>
+    </div>
+
+  <script>
+      document.querySelectorAll('form').forEach(form => {
+          form.addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent default form submission
+
+              var formData = new FormData(this);
+
+              fetch(this.action, {
+                  method: 'POST',
+                  body: formData
+              })
+              .then(response => response.text())
+              .then(data => {
+                  alert(data); // Show alert with server response
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+          });
+      });
+
+      function Logout(){
+        fetch('PHP/logout.php')
+        .then(response => {
+            if (response.ok) {
+                // Remove specific items from session storage
+                sessionStorage.removeItem('admin_username');
+                sessionStorage.removeItem('admin_password');
+
+
+                window.location.href = 'home.html';
+            } else {
+                alert('Logout failed.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+      }
+
+      window.onload = function() {
+        let adminUsername = sessionStorage.getItem('admin_username');
+        let adminPassword = sessionStorage.getItem('admin_password');
+
+        if (!adminUsername || !adminPassword) {
+            // Redirect to login page if session storage is not set
+            window.location.href = 'login.html';
+        }
+      };
+
+
+      const adminSocket = new WebSocket('ws://localhost:8080'); // Update with your actual WebSocket server URL
+
+adminSocket.onopen = function() {
+    console.log('Connected to the WebSocket server');
+};
+
+adminSocket.onmessage = function(event) {
+    const message = event.data;
+
+    if (typeof message === 'string') {
+        displayMessage(message);
+    } else {
+        const reader = new FileReader();
+        reader.onload = function() {
+            displayMessage( reader.result);
+        };
+        reader.readAsText(message);
+    }
+};
+
+function displayMessage(message) {
+    const adminChatMessages = document.getElementById('admin-chat-messages');
+    adminChatMessages.innerHTML += '<p>' + message + '</p>';
+    adminChatMessages.scrollTop = adminChatMessages.scrollHeight;
+}
+
+document.getElementById('admin-send-btn').onclick = function() {
+    const message = document.getElementById('admin-chat-input').value;
+    adminSocket.send(message);
+    displayMessage('You: ' + message);
+    document.getElementById('admin-chat-input').value = '';
+};
+
+document.getElementById('admin-chat-input').onkeypress = function(e) {
+    if (e.which == 13) { // Enter key pressed
+        document.getElementById('admin-send-btn').click();
+    }
+};
+
+  </script>
     
 </body>
 </html>
